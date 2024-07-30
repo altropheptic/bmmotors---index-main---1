@@ -293,21 +293,33 @@
 function filterTable() {
   const searchTerm = document.getElementById('search-box').value.trim();
   const tableRows = document.querySelectorAll('#data-table tbody tr');
+  const errorMessage = document.getElementById('error-message');
 
   // Create a regex pattern to match searchTerm with dots in between characters
   const regexPattern = searchTerm.split('').join('\\.?');
   const regex = new RegExp(regexPattern, 'i'); // 'i' for case-insensitive
 
+  let found = false; // Flag to check if any match is found
+
   tableRows.forEach(row => {
     const cellText = row.cells[0].textContent.trim();
     if (regex.test(cellText)) {
       row.style.display = ''; // Show row
+      found = true; // Set flag to true if a match is found
     } else {
       row.style.display = 'none'; // Hide row
     }
   });
+
+  // Show or hide the error message based on the found flag
+  if (found) {
+    errorMessage.style.display = 'none';
+  } else {
+    errorMessage.style.display = 'block';
+  }
 }
 
 // Attach the filter function to the search box input event
 document.getElementById('search-box').addEventListener('input', filterTable);
+
 
