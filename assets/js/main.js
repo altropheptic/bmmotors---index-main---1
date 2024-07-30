@@ -290,17 +290,24 @@
 
 })()
 
-document.getElementById('search-box').addEventListener('input', function() {
-  const searchTerm = document.getElementById('search-box').value.toLowerCase();
-  const rows = document.querySelectorAll('#table-body tr');
+function filterTable() {
+  const searchTerm = document.getElementById('search-box').value.trim();
+  const tableRows = document.querySelectorAll('#data-table tbody tr');
 
-  rows.forEach(row => {
-    const cell = row.querySelector('td').textContent.toLowerCase();
-    if (cell.includes(searchTerm) || searchTerm === '') {
-      row.style.display = '';
+  // Create a regex pattern to match searchTerm with dots in between characters
+  const regexPattern = searchTerm.split('').join('\\.?');
+  const regex = new RegExp(regexPattern, 'i'); // 'i' for case-insensitive
+
+  tableRows.forEach(row => {
+    const cellText = row.cells[0].textContent.trim();
+    if (regex.test(cellText)) {
+      row.style.display = ''; // Show row
     } else {
-      row.style.display = 'none';
+      row.style.display = 'none'; // Hide row
     }
   });
-});
+}
+
+// Attach the filter function to the search box input event
+document.getElementById('search-box').addEventListener('input', filterTable);
 
