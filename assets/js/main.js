@@ -289,3 +289,18 @@
   
 
 })()
+
+document.getElementById('search-box').addEventListener('input', function() {
+  const searchTerm = document.getElementById('search-box').value.toLowerCase();
+  const rows = document.querySelectorAll('#table-body tr');
+
+  rows.forEach(row => {
+    const cell = row.querySelector('td').textContent.toLowerCase();
+    if (cell.includes(searchTerm) || searchTerm === '') {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});
+
