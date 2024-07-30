@@ -27,6 +27,9 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Google Sheets API -->
+  <script src="https://apis.google.com/js/api.js" async defer></script>
 </head>
 
 <body>
@@ -35,40 +38,18 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-lg-between">
 
-      <!--h1 class="logo me-auto me-lg-0"><a href="index.html">Gp<span>.</span></a></h1-->
-      <!-- Uncomment below if you prefer to use an image logo -->
       <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto " href="index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
           <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
           <li><a class="nav-link scrollto" href="index.html#brands">Brands</a></li>
-          <li><a class="nav-link scrollto " href="index.html#portfolio">Portfolio</a></li>
-          <!--li><a class="nav-link scrollto" href="#team">Team</a></li-->
-          <!--li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li-->
+          <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
-      <!--a href="enquire.html" class="get-started-btn scrollto">Enquire Now</a-->
 
     </div>
   </header><!-- End Header -->
@@ -90,46 +71,23 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-      <div id="my-store-94795011"></div>
-      <div><script data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?94795011&data_platform=code&data_date=2023-11-07" charset="utf-8"></script>
-      <script type="text/javascript"> 
-      window.ec=window.ec||{}; 
-      window.ec.storefront=window.ec.storefront||{}; 
-      window.ec.storefront.enable_navigation=true;
-      window.ec.storefront.product_details_layout="TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT";
-      window.ec.storefront.product_details_gallery_layout="SINGLE_IMAGE";
-      window.ec.storefront.product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar=true;
-      window.ec.storefront.product_details_two_columns_with_left_sidebar_show_product_description_on_sidebar=false;
-      window.ec.storefront.product_details_show_product_name=true;
-      window.ec.storefront.product_details_show_breadcrumbs=true;
-      window.ec.storefront.product_details_show_product_sku=false;
-      window.ec.storefront.product_details_show_product_price=true;
-      window.ec.storefront.product_details_show_in_stock_label=true;
-      window.ec.storefront.product_details_show_number_of_items_in_stock=true;
-      window.ec.storefront.product_details_show_qty=true;
-      window.ec.storefront.product_details_show_wholesale_prices=false;
-      window.ec.storefront.product_details_show_product_options=true;
-      window.ec.storefront.product_details_show_product_description=true;
-      window.ec.storefront.product_details_show_delivery_time=undefined;
-      window.ec.storefront.product_details_show_share_buttons=true;
-      window.ec.storefront.product_details_position_product_name=100;
-      window.ec.storefront.product_details_position_breadcrumbs=200;
-      window.ec.storefront.product_details_position_product_sku=300;
-      window.ec.storefront.product_details_position_product_price=400;
-      window.ec.storefront.product_details_position_product_options=undefined;
-      window.ec.storefront.product_details_position_buy_button=600;
-      window.ec.storefront.product_details_position_wholesale_prices=700;
-      window.ec.storefront.product_details_position_product_description=800;
-      window.ec.storefront.product_details_position_delivery_time=undefined;
-      window.ec.storefront.product_details_position_share_buttons=900;
-      window.ec.storefront.product_details_position_subtitle=500;
-      window.ec.storefront.product_details_show_subtitle=true;
-      xProductBrowser("categoriesPerRow=3","views=grid(20,3) list(60) table(60)","categoryView=grid","searchView=list","defaultProductId=602245038","id=my-store-94795011");
-      </script>
+    <!-- ======= Table Section ======= -->
+    <section id="table">
+      <div class="container">
+        <h2>Our Inventory</h2>
+        <table id="data-table" class="table table-striped">
+          <thead>
+            <tr id="table-header">
+              <!-- Table headers will be inserted here -->
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Table data will be inserted here -->
+          </tbody>
+        </table>
       </div>
-    </section>
-    
+    </section><!-- End Table Section -->
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -203,21 +161,87 @@
         </a>
       </div>
     </div>
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Script to fetch data from Google Sheets -->
+    <script>
+      const SHEET_ID = '1ObZJJbJpDLZpLAOSi0sDwsQD5mFGsz1rpKW7TAGxffY'; // Your Google Sheets ID
+      const API_KEY = 'AIzaSyBlfrpWpfJGubyH56ZoHokd49kyhcjcUNA'; // Your API key
+      const RANGE = 'Sheet1!A:A'; // Range for column A
+  
+      function init() {
+        gapi.load('client', start);
+      }
+  
+      function start() {
+        gapi.client.init({
+          apiKey: API_KEY,
+        }).then(() => {
+          return gapi.client.request({
+            path: `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}`,
+          });
+        }).then(response => {
+          const data = response.result.values;
+          if (data && data.length) {
+            populateTable(data);
+          } else {
+            console.error('No data returned from the API.');
+            alert('No data available in the sheet.');
+          }
+        }).catch(error => {
+          console.error('Error fetching data from Google Sheets:', error);
+          alert('Failed to fetch data. Check console for details.');
+        });
+      }
+  
+      function populateTable(data) {
+        const tableHeader = document.getElementById('table-header');
+        const tableBody = document.getElementById('table-body');
+  
+        if (data.length > 0) {
+          // Set table headers
+          const headers = ['Data']; // Assuming single column
+          let headerRow = '<tr>';
+          headers.forEach(header => {
+            headerRow += `<th>${header}</th>`;
+          });
+          headerRow += '</tr>';
+          tableHeader.innerHTML = headerRow;
+  
+          // Set table rows
+          let rows = '';
+          data.forEach(row => {
+            rows += '<tr>';
+            row.forEach(cell => {
+              rows += `<td>${cell}</td>`;
+            });
+            rows += '</tr>';
+          });
+          tableBody.innerHTML = rows;
+        } else {
+          tableHeader.innerHTML = '<tr><th colspan="100%">No data available</th></tr>';
+        }
+      }
+  
+      // Load the Google API client library
+      gapi.load('client', init);
+    </script>
 
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  </footer><!-- End Footer -->
 
 </body>
 
