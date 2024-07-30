@@ -1,10 +1,3 @@
-/**
-* Template Name: Gp
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 /*--------------------------------------------------------------
 # General
@@ -1410,6 +1403,54 @@ section {
   .breadcrumbs ol li {
     display: inline-block;
   }
+}
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#loading-spinner {
+  position: fixed; /* Fixes the element relative to the viewport */
+  top: 60%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for the width and height of the element */
+  z-index: 9999; /* Ensure it’s above other content */
+  display: none; /* Initially hidden */
+}
+
+/* Adjust spinner size based on screen width */
+@media (max-width: 768px) {
+  #loading-spinner img {
+    width: 50px; /* Adjust width for smaller screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+@media (min-width: 769px) {
+  #loading-spinner img {
+    width: 100px; /* Width for larger screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+
+#loading-spinner img {
+  width: auto; /* Keep the image's natural width */
+  height: auto; /* Keep the image's natural height */
+}
+
+#main {
+  min-height: 100vh; /* Ensure main content takes full viewport height */
+  padding-bottom: 120px; /* Adjust based on footer height */
+}
+
+footer {
+  position: relative; /* Ensures footer stays in place */
+  z-index: 1; /* Make sure footer is below the loader */
 }
 
 /*--------------------------------------------------------------
